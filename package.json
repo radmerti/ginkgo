@@ -1,0 +1,25 @@
+{
+	"name": "Ginkgo",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Blog with datamining in backend (auto-tagging, closeness-colored tags) and focus on speed of delivery through static resources.",
+	"author": "Tillmann Radmer <tillmann.radmer@gmail.com> (https://twitter.com/till_tweets)",
+	"scripts": {
+		"start": "node ./ginkgo.js"
+	},
+	"dependencies": {
+		"compression": "~1.5.2",
+		"express": "~4.13.3",
+		"imagemagick": "~0.1.3",
+		"jade": "~1.11.0",
+		"mongoose": "~4.1.8",
+		"morgan": "~1.6.1",
+		"serve-favicon": "~2.3.0",
+		"stylus": "~0.52.4",
+		"marked": "~0.3.5",
+		"winston": "~1.0.1",
+		"bcrypt": "~0.8.5",
+		"passport": "~0.3.0",
+		"colors-palette": "~0.0.4"
+	}
+}
