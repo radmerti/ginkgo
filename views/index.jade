@@ -1,0 +1,19 @@
+extends __layout
+
+
+block preamble
+	link(href="/css/highlight/monokai_sublime.min.css" rel="stylesheet")
+	script(type='text/javascript', src='/javascripts/mini.min.js')
+	script(type='text/javascript', src='/javascripts/index.js')
+
+block content
+	.title
+		img.logo(src='/images/logo-inverted.png')
+		h1= title
+		div#new-article-click.header-control.clickable
+			input.hidden-input(type="file" accept=".md")
+		div#upload-artice-click.header-control.clickable
+			input.hidden-input(type="button")
+	.content
+		div#article-grid-container(style="display: block;")
+		div#article-container(style="display: block;")

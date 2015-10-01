@@ -1,0 +1,116 @@
+- var gridWidth = 2;
+- var gridHeight = Math.ceil(articles.length)*2;
+- //console.log(gridHeight);
+- var grid = [], i = gridHeight*gridWidth; while(--i >= 0) grid[i] = -1;
+- //console.log(grid);
+- for(var a = 0; a < articles.length; a++) {
+- 	//console.log(a);
+-	var posFound = 0;
+- 	for(var y = 0; y < gridHeight; y++) {
+- 		//console.log(y);
+- 		for(var x = 0; x < gridWidth; x++) {
+-			if(grid[y*gridWidth + x] === -1) {
+-				if(articles[a].type === '1x1') {
+- 					grid[y*gridWidth + x] = a;
+-					posFound = 1;
+- 				}
+-				else if(articles[a].type === '1x2') {
+-					if(grid[(y+1)*gridWidth + x] && grid[(y+1)*gridWidth + x] === -1) {
+-						grid[y*gridWidth + x] = a;
+-						grid[(y+1)*gridWidth + x] = -2;
+-						posFound = 1;
+-					}
+-				}
+-				else if(articles[a].type === 'date-seperator') {
+-					if(x+1 < gridWidth && grid[y*gridWidth + (x+1)] === -1) {
+- 						for(var i = 0; i < (y*gridWidth + x); i++) if(grid[i] === -1) grid[i] = -2;
+-						grid[y*gridWidth + x] = a;
+-						grid[y*gridWidth + (x+1)] = -2;
+-						posFound = 1;
+-					}
+-				}
+-				else if(articles[a].type === '2x2') {
+-					if(x+1 < gridWidth && y+1 < gridHeight && grid[y*gridWidth + x+1] === -1 && grid[(y+1)*gridWidth + x] === -1 && grid[(y+1)*gridWidth + x+1] === -1) {
+-						grid[y*gridWidth + x] = a;
+-						grid[y*gridWidth + x+1] = grid[(y+1)*gridWidth + x] = grid[(y+1)*gridWidth + x+1] = -2;
+-						posFound = 1;
+-					}
+-				}
+-			}
+- 			if(posFound == 1) break;
+- 		}
+-		if(posFound == 1) break;
+- 	}
+- }
+- 
+- //console.log(grid);
+- for(var y = 0; y < gridHeight; y++) {
+- 	//console.log(y);
+-	var empty = true;
+- 	for(var x = 0; x < gridWidth; x++) {
+-		empty = grid[y*gridWidth + x] === -1;
+-		if(!empty) break;
+-	}
+- 	if(empty) for(var x = 0; x < gridWidth; x++) grid[y*gridWidth + x] = -3;
+- }
+- var newGrid = [];
+- for(var i = 0; i < grid.length; i++) if(grid[i] !== -3) newGrid[i] = grid[i];
+- grid = newGrid;
+- //console.log(grid);
+- gridHeight = Math.ceil(newGrid.length/2);
+- //console.log('Rendering...');
+- //console.log('GridHeight: '+gridHeight);
+- var y = 0;
+table.article-grid
+	while y < gridHeight
+		- //console.log('y '+y);
+		tr(valign='top')
+			- var x = 0;
+			while x < gridWidth
+				- //console.log('x '+x);
+				- var a = grid[y*gridWidth + x]
+				if articles[a]
+					if articles[a].type == '1x1'
+						- //console.log('1x1');
+						td.small
+							div.article-list-entry.content-entry.clickable.small(data-content=articles[a].content)
+								.thumbnail
+									img(src='/articles/images/11/'+articles[a].thumbnail)
+								.article-summary
+									h1= articles[a].title
+									.header
+										h2.category= articles[a].category
+										h2.date= articles[a].date
+					else if articles[a].type == '1x2'
+						- //console.log('1x2');
+						td(rowspan="2")
+							div.article-list-entry.content-entry.clickable.tall(data-content=articles[a].content)
+								.thumbnail
+									img(src='/articles/images/12/'+articles[a].thumbnail)
+								.article-summary
+									h1= articles[a].title
+									.header
+										h2.category= articles[a].category
+										h2.date= articles[a].date
+					else if articles[a].type == 'date-seperator'
+						- //console.log('date-seperator');
+						td(colspan="2")
+							div.date-seperator.article-list-entry.content-entry
+								h1= articles[a].date
+					else if articles[a].type == '2x2'
+						td(rowspan="2" colspan="2")
+							div.article-list-entry.content-entry.clickable.large(data-content=articles[a].content)
+								.thumbnail
+									img(src='/articles/images/22/'+articles[a].thumbnail)
+								.article-summary
+									h1= articles[a].title
+									.header
+										h2.category= articles[a].category
+										h2.date= articles[a].date
+					else
+						- //console.log('0x0');
+						td
+				else
+					- //console.log('none');
+				- x++;
+		- y++;

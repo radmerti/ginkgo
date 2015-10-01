@@ -30,8 +30,8 @@ Ginkgo is an application for presenting professional or scientific work along wi
 
 ### How to run the project? ###
 Easy! Run
-* > npm install
-* > npm start
+* npm install
+* npm start
 
 ### Contribution guidelines ###
 
@@ -40,5 +40,5 @@ Easy! Run
 
 ### Who do I talk to? ###
 
-* Repository Guardian: Tillmann Radmer <tillmann.radmer@gmail.com>
-* Chief Technology Wizard: Hannes Radmer <hannesradmer@gmail.com>
+* Repository Guardian: Tillmann Radmer "<tillmann.radmer@gmail.com>"
+* Chief Technology Wizard: Hannes Radmer "<hannesradmer@gmail.com>"
