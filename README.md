@@ -1,8 +1,8 @@
-# GINKGO #
+# GINKGO
 
 Ginkgo is an application for presenting professional or scientific work along with professional, CV-timeline-like, profile pages with an overall focus on simplicity, scalability and speed.
 
-### State of the Project ###
+### State of the Project
 
 * Nothing works, really.
 * The root page is served. :)
@@ -28,17 +28,17 @@ Ginkgo is an application for presenting professional or scientific work along wi
 * 01.00.00 web-ui for managing one's account.
 * 01.00.01 grid-sort-by-relevance includes followed people & topics
 
-### How to run the project? ###
+### How to run the project?
 * npm install
 * grunt
 * npm start
 
-### Contribution guidelines ###
+### Contribution guidelines
 
 * we currently don't have testing guidelines in palce
 * we currently don't have code review in place
 
-### Who do I talk to? ###
+### Who do I talk to?
 
 * Repository Guardian: Tillmann Radmer "<tillmann.radmer@gmail.com>"
 * Chief Technology Wizard: Hannes Radmer "<hannesradmer@gmail.com>"
