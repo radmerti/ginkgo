@@ -1,0 +1,219 @@
+body
+  margin 0px
+  opacity 0.0
+  overflow-y scroll
+
+body.enter
+  animation-fill-mode forwards
+  animation-name fade-in
+  animation-duration 200ms
+  animation-timing-function ease-in-out
+  animation-delay 0ms
+  animation-iteration-count 1
+
+.title
+  text-align center
+  position relative
+  top 0px
+  left 0px
+  width 100%
+  height 60px
+  cursor default
+  box-shadow 0px -2px 6px 3px #000
+  background rgba(0, 0, 0, 0.87)
+  z-index 999
+  
+.title .clickable
+  opacity 0.67
+
+.title .clickable:hover
+  opacity 0.9
+
+.title .header-control
+	margin 0px 15px 0px 0px
+	height 100%
+	width 26px
+	float right
+
+#new-article-click
+  background url("/glyphicons/glyphicons-191-circle-plus-inverted.png") no-repeat center center
+  margin 0px 30px 0px 0px
+  
+#upload-artice-click
+  background url("/glyphicons/glyphicons-202-upload-inverted.png") no-repeat center center
+  // opacity 0
+  display none
+
+.title .hidden-input
+  //display block
+  width 100%
+  height 100%
+  opacity 0
+  overflow hidden
+  
+.title .hidden-input:hover
+  cursor pointer
+  
+.title .logo
+  pointer-events none
+  float left
+  max-height 40px
+  max-width 40px
+  margin 12px 0px 8px 20px
+
+.title h1
+  font-family "Oswald"
+  color #ccc
+  text-transform uppercase
+  font-size 40px
+  line-height 40px
+  font-weight 400
+  letter-spacing 3px
+  margin 10px 0 10px 10px
+  float left
+
+.title h2
+  font-family "Oswald"
+  color #eee
+  font-size 19px
+  line-height 56px
+  font-weight 300
+  opacity 0
+  float left
+  margin-left 10px
+  
+.title h2.enter
+  animation-name fade-in-67
+  animation-duration 600ms
+  animation-timing-function ease-in-out
+  animation-delay 700ms 
+  animation-iteration-count 1
+  animation-fill-mode both
+
+.content
+  position absolute 
+  top 60px
+  left 0px
+  width 100%
+  z-index 998
+
+.content #article-grid-container
+  margin-top 0px
+  margin-bottom 22px
+  margin-left calc(50% - 932px / 2)
+  margin-right auto
+  max-width 932px
+  width 932px
+
+.content #article-grid-container tr
+  height 162px
+
+.content #article-grid-container .article-list-entry
+  opacity 0.0
+  transform translateY(-20px)
+  
+.content #article-grid-container .article-list-entry.clickable:hover
+  cursor pointer
+
+.content #article-grid-container .date-seperator
+  padding 113px 0px 50px 0px 
+  
+.content #article-grid-container .date-seperator h1
+  text-align center
+  line-height 0px
+  margin 0px
+  font-weight 300
+  opacity 0.46
+  vertical-align bottom
+  font-size 36px
+  
+.content #article-grid-container .date-seperator h1:before, .content #article-grid-container .date-seperator h1:after
+    background-color rgba(6, 9, 12, 0.87) 
+    content "" 
+    display inline-block 
+    height 1px 
+    position relative 
+    vertical-align top 
+    width 60px
+
+.article-list-entry.enter
+  animation-name slide-in-top 
+  animation-duration 400ms 
+  animation-timing-function ease-in-out 
+  animation-delay 0ms 
+  animation-iteration-count 1 
+  animation-fill-mode both 
+  
+.article-list-entry.exit
+  animation-name slide-out-top
+  animation-duration 200ms
+  animation-timing-function ease-in-out
+  animation-delay 0ms
+  animation-iteration-count 1
+  animation-fill-mode both
+  
+.article-list-entry.exit.delay-exit
+  animation-name slide-out-top 
+  animation-duration 200ms 
+  animation-timing-function ease-in-out 
+  animation-delay 200ms 
+  animation-iteration-count 1 
+  animation-fill-mode both 
+
+@keyframes fade-in {
+  to {
+    opacity 1.0 
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity 0.0 
+  }
+}
+
+@keyframes fade-in-67 {
+  to {
+    opacity 0.67 
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    transform translateY(-20px) 
+    opacity 0.0
+  }
+  to {
+    transform translateY(0px) 
+    opacity 1.0 
+  }
+}
+
+@keyframes slide-out-top {
+  from {
+    transform translateY(0px) 
+    opacity 1.0 
+  }
+  to {
+    transform translateY(0px) 
+    opacity 0.0
+  }
+}
+
+@keyframes slide-to-middle {
+  from {
+    transform scaleX(1.0) scaleY(1.0)
+    transform translateY(0px) 
+    opacity 1.0 
+  }
+  to {
+    transform scaleX(1.1) scaleY(1.1)
+    opacity 0.0
+  }
+}
+
+@require '_card-small'
+@require '_card-tall'
+@require '_card-large'
+
+@require '_content-container'

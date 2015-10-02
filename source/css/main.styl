@@ -1,0 +1,20 @@
+@require '_fonts'
+@require '_shared'
+
+
+body
+  color: rgba(6, 9, 12, 0.87)
+  
+body::after {
+  content ""
+  background url("/images/background.jpg") repeat scroll center
+  opacity 0.03
+  top 0
+  left 0
+  bottom 0
+  right 0
+  position absolute
+  z-index -1 
+}
+
+@require 'index'

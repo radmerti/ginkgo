@@ -1,0 +1,18 @@
+set-border-radius(radius)
+	border-radius: radius
+	-webkit-border-radius: radius
+	-moz-border-radius: radius
+
+rounded-image(w, h, borderradius)
+	width: w
+	height: h
+	set-border-radius(borderradius)
+	background-position: center center
+	background-repeat: no-repeat
+  
+vertical-align-center()
+	position: relative
+	top: 50%
+	-webkit-transform: translateY(-50%)
+	-ms-transform: translateY(-50%)
+	transform: translateY(-50%)
