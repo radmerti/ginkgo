@@ -4,8 +4,8 @@
 * Written by Tillmann Radmer <tillmann.radmer@gmail.com>, September 2015
 */
 
-var express = require('express')
-  , router = express.Router();
+var express = require('express'),
+	router = express.Router();
 
 
 

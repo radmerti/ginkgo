@@ -4,9 +4,10 @@
 * Written by Tillmann Radmer <tillmann.radmer@gmail.com>, September 2015
 */
 
-var mongoose = require('mongoose')
-  , fs = require('fs')
-  , Jade = require('./../methods').Jade;
+var mongoose = require('mongoose'),
+	fs = require('fs');
+
+var Jade = require('./../methods').Jade;
 
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -20,7 +21,7 @@ var GinkgoDB = mongoose.connection;
 GinkgoDB.once('open', function (callback) {
 	// On startup, once the database is up, compile every jade file in 'views' to '/static-views/'
 	fs.readdir(__dirname + '/../views/', function(error, files) {
-		for(i=0; i < files.length; i++) {
+		for(var i=0; i < files.length; i++) {
 			Jade.CompileViews(files[i], __dirname + '/../views/', __dirname + '/../static-views/');
 		}
 	});

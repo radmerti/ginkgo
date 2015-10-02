@@ -41,13 +41,58 @@ module.exports = function(grunt) {
 					]
 				}
 			}
+		},
+		jshint: {
+			options: {
+				curly: false,
+				eqeqeq: true,
+				eqnull: true,
+				freeze: true,
+				latedef: true,
+				noarg: true,
+				nonew: true,
+				singleGroups: true,
+				strict: false,
+				undef: false,
+				unused: false,
+				laxcomma: false,
+				varstmt: false,
+				shadow: "inner"
+			},
+			build_browser: {
+				options: {
+					node: false,
+					browser: true,
+					jquery: true
+				},
+				files: {
+					src: ['source/javascript/*.js']
+				}
+			},
+			build_nodejs: {
+				options: {
+					node: true,
+					browser: false,
+					jquery: false
+				},
+				files: {
+					src: [
+						'*.js',
+						'daemons/**/*.js',
+						'methods/**/*.js',
+						'middleware/**/*.js',
+						'models/**/*.js',
+						'routes/**/*.js']
+				}
+			}
 		}
 	});
 
 	// Load the plugin that provides the "uglify" task.
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// Default task(s).
-	grunt.registerTask('default', ['uglify']);
+	grunt.registerTask('default', ['uglify', 'jshint']);
 
 };

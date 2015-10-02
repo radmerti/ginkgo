@@ -4,14 +4,15 @@
 * Written by Tillmann Radmer <tillmann.radmer@gmail.com>, September 2015
 */
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+	bcrypt = require('bcrypt');
 
 var Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
 
 
 // salt factor used for password hasing with bcrypt
-SALT_WORK_FACTOR = 7;
+var SALT_WORK_FACTOR = 7;
 
 
 
@@ -53,14 +54,14 @@ userSchema.methods.setPassword = function (password, done) {
 			done();
 		});
 	});
-}
+};
 
 userSchema.methods.comparePassword = function(candidatePassword, done) {
 	bcrypt.compare(candidatePassword, this.password, function(error, isMatch) {
 		if( error ) return done(error);
 		done(null, isMatch);
 	});
-}
+};
 
 // TODO: [OPT] uncomment for production use!
 // articleSchema.set('autoIndex', false);

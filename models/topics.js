@@ -15,7 +15,7 @@ var Schema = mongoose.Schema,
 // Schema for Tags
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-topicSchema = Schema({
+var topicSchema = Schema({
 	name: { type: String, required: true, index: { unique: true } },
 	articles: { type: [ObjectId] },
 	authors: { type: [ObjectId] }

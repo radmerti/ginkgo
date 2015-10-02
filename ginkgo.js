@@ -8,16 +8,16 @@
 
 
 // include framework and required modules
-var express = require('express')
-  , app = express()
-  , path = require('path')
-  , mongoose = require('mongoose');
+var express = require('express'),
+	app = express(),
+	path = require('path'),
+	mongoose = require('mongoose');
 
 
-var Daemons = require('./daemons')
-  , Middleware = require('./middleware')
-  , Models = require('./models')
-  , Logger = require('./methods').Winston.Logger;
+var Daemons = require('./daemons'),
+	Middleware = require('./middleware'),
+	Models = require('./models'),
+	Logger = require('./methods').Winston.Logger;
 
 var Root = require('./routes');
 // var Grid = require('./routes/grid.js');

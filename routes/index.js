@@ -14,9 +14,8 @@
 // TODO: [NEW] 
 // TODO: [NEW] 
 
-var express = require('express')
-  , router = express.Router()
-  , passport = require('passport');
+var express = require('express'),
+	router = express.Router();
 
 
 var grid = require('./grid.js');

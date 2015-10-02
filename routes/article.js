@@ -4,8 +4,8 @@
 * Written by Tillmann Radmer <tillmann.radmer@gmail.com>, September 2015
 */
 
-var express = require('express')
-  , router = express.Router();
+var express = require('express'),
+	router = express.Router();
 
 var Articles = require('./../models').Articles;
 
@@ -21,7 +21,7 @@ var ConvertToSlug = function(Text) {
 		.replace(/\-\-+/g, '-')         // Replace multiple - with single -
 		.replace(/^-+/, '')             // Trim - from start of text
 		.replace(/-+$/, '');            // Trim - from end of text
-}
+};
 
 
 

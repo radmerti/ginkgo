@@ -24,3 +24,4 @@ var Images = require('./images.js');
 exports.Articles = Articles;
 exports.Tags = Tags;
 exports.Users = Users;
+exports.Images = Images;

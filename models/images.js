@@ -4,8 +4,7 @@
 * Written by Tillmann Radmer <tillmann.radmer@gmail.com>, September 2015
 */
 
-var mongoose = require('mongoose')
-  , fs = require('fs');
+var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;

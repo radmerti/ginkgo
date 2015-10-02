@@ -4,16 +4,16 @@
 * Written by Tillmann Radmer <tillmann.radmer@gmail.com>, September 2015
 */
 
-var express = require('express')
-  , router = express.Router();
+var express = require('express'),
+	router = express.Router();
 
-var Articles = require('./../models').Articles
-  , Logger = require('./../methods').Winston.Logger;
+var Articles = require('./../models').Articles,
+	Logger = require('./../methods').Winston.Logger;
 
 var RoundUp100 = function(toRound) {
 	var rest = toRound % 100;
-	return toRound - rest + (100 * Math.ceil(rest*0.01));
-}
+	return toRound - rest + 100 * Math.ceil(rest*0.01);
+};
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // [GET] Grid endpoints
@@ -30,7 +30,7 @@ router.get('/', function(request, response, next) {
 
 	Logger.info('/g detected topic: ' + topic );
 
-	if( topic == '' ) {			// not filtered -> search in Articles
+	if( topic === '' ) {			// not filtered -> search in Articles
 		Articles.find()
 			.sort({ published_on: -1 })
 			.limit(100)
