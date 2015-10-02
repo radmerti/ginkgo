@@ -29,9 +29,18 @@ Ginkgo is an application for presenting professional or scientific work along wi
 * 01.00.01 grid-sort-by-relevance includes followed people & topics
 
 ### How to run the project?
-* npm install
-* grunt
-* npm start
+
+First install the dependencies.
+
+* `npm install`
+
+After making changes to the front-end javascript code the concatenated and minified files in the `public/javascript/` directory need to be updated.
+
+* `grunt`
+
+Finally, start the server.
+
+* `npm start`
 
 ### Contribution guidelines
 
@@ -40,5 +49,5 @@ Ginkgo is an application for presenting professional or scientific work along wi
 
 ### Who do I talk to?
 
-* Repository Guardian: Tillmann Radmer "<tillmann.radmer@gmail.com>"
-* Chief Technology Wizard: Hannes Radmer "<hannesradmer@gmail.com>"
+* Repository Guardian: Tillmann Radmer (<tillmann.radmer@gmail.com>)
+* Chief Technology Wizard: Hannes Radme (<hannesradmer@gmail.com>)
