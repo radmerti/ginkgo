@@ -29,7 +29,6 @@ Ginkgo is an application for presenting professional or scientific work along wi
 * 01.00.01 grid-sort-by-relevance includes followed people & topics
 
 ### How to run the project? ###
-Easy! Run:
 * npm install
 * grunt
 * npm start
