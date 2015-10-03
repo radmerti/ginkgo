@@ -14,9 +14,9 @@ var Stylus = require('stylus'),
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 var stylus = Stylus.middleware({
-		  force: false,
-		  src: path.join(__dirname,'assets'),
-		  dest: path.join(__dirname,'public'),
+		  force: true,
+		  src: path.join(__dirname,'../source'),
+		  dest: path.join(__dirname,'../public'),
 		  compress: true,
 		  linenos: false,
 		  debug: false
