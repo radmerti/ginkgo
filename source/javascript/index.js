@@ -213,7 +213,7 @@ $(window).load(function() {
 
 	$('body').on('animationend webkitAnimationEnd', function(event) {
 		if(event.target === this && $(this).hasClass('enter')) {
-			loadPageContent(true);
+			//loadPageContent(true);
 		}
 	});
 
