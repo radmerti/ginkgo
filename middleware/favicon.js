@@ -13,7 +13,7 @@ var path = require('path');
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 var favicon = require('serve-favicon') (
-	path.join(__dirname,'..','public','images','favicon.ico')
+	path.join(__dirname,'..','public','images','favicon_01.ico')
 );
 
 

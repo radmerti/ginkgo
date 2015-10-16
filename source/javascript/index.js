@@ -147,30 +147,22 @@ window.onpopstate = function(event) {
 	loadPageContent(function() { return true; }, true);
 };
 
-$(document).ready(function() {
+function newArticleChange(event) {
 	"use strict";
-	// catch the file-input change event to parse and display the new file
-	$('#new-article-click .hidden-input').change(function(event) {
-		var articleContainer = $('.content #article-container');
+	var articleContainer = $('.content #article-container');
 
-		var file;
+	var file = event.currentTarget.files[0];
 
-		// load the file
-		if( this.files )
-			file = this.files[0];
+	// load the file
+	if( file ) {
 		var reader = new FileReader();
-		
-		reader.onload = function(event) {
 
+		reader.onload = function(event) {
 			marked(event.target.result, function(error, articleContent) {
 				articleContainer.html(articleContent);
 
 				var title = $('.header h1', articleContainer).text();
 				var subtitle = $('.header h2', articleContainer).text();
-				//$('.header', articleContainer).remove();
-
-
-				//$('.metadata', articleContainer).remove();
 
 				var content = $(articleContainer).html().replace(/(\r\n|\n|\r)/gm," ").replace(/\s+/g," ");
 
@@ -187,24 +179,81 @@ $(document).ready(function() {
 					hljs.highlightBlock(block);
 				});
 
-				articleContainer.show();
-				articleContainer.removeClass('exit');
-				articleContainer.addClass('enter');
-				var uploadButton = $('#upload-artice-click');
-				uploadButton.fadeIn("slow");
+				hideContent(function() {
 
-				var jContent = $(articleContent);
+					articleContainer.show();
+					articleContainer.removeClass('exit');
+					articleContainer.addClass('enter');
+
+				}, undefined );
 			});
 		};
 
-		// hide the articleContainer if it was shown before
-		if(articleContainer.hasClass('enter')) {
-			articleContainer.removeClass('enter');
-			articleContainer.addClass('exit');
-		}
-
 		reader.readAsText(file);
-	});
+	}
+}
+
+function uploadArticleClick(event) {
+	"use strict";
+
+	var articleContent = $('.content #article-container').html();
+
+	if( articleContent ) {
+/*		$.get('/a/560013d979563bf13bb25f3a', function(articleJSON) {
+			var console_log = "";
+			for (var key in articleJSON) {
+				if (articleJSON.hasOwnProperty(key)) {
+					console_log += "article[" + key + "]=" + articleJSON[key] + "\n";
+				}
+			}
+
+			// find the container and load the content into it
+			var articleContainer = $('.content #article-container');
+			articleContainer.text(console_log);
+
+			// Render code syntax highlighting
+			$('pre code', articleContainer).each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+
+			hideContent(function() {
+
+				articleContainer.show();
+				articleContainer.removeClass('exit');
+				articleContainer.addClass('enter');
+
+			}, undefined );
+		});*/
+
+		var user_consent = window.confirm("Are you sure that you want to upload the article?");
+		if( user_consent ) {
+			var newArticle = {};
+			newArticle.content = articleContent;
+
+			$.ajax({
+				url: '/a/560013d979563bf13bb25f3a',
+				type: "POST",
+				data: JSON.stringify(newArticle),
+				contentType:"application/json; charset=utf-8",
+				dataType:"json",
+				success: function(){
+					window.alert("Upload was successful.");
+				}
+			})
+			.fail(function() {
+				window.alert("Upload failed.");
+			});
+		} else {
+			window.alert("Canceled.");
+		}
+	}
+}
+
+$(document).ready(function() {
+	"use strict";
+	// catch the file-input change event to parse and display the new file
+	$('#new-article-click .hidden-input').change(newArticleChange);
+	$('#upload-artice-click .hidden-input').click(uploadArticleClick);
 });
 
 $(window).load(function() {
@@ -219,7 +268,7 @@ $(window).load(function() {
 
 	// add the root page to the history if the state is not the root page
 	var endpoint = window.location.pathname.split('/')[1];
-	if(endpoint !==  '') {
+	if( endpoint !==  '' ) {
 		window.history.replaceState(undefined, "Ginkgo Home", '/');
 		window.history.pushState(undefined, "", endpoint);
 	}

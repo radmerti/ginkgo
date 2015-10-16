@@ -21,7 +21,7 @@ var SALT_WORK_FACTOR = 7;
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 var userSchema = Schema({
-	email: { type: String, required: true, index: { unique: true } },
+	email: { type: String, lowercase: true, required: true, index: { unique: true, dropDups: false } },
 	password: { type: String },
 	salt: { type: String },
 	created: { type: Date, default: Date.now},

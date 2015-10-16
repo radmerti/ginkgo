@@ -8,7 +8,7 @@ block preamble
 
 block content
 	.title
-		img.logo(src='/images/logo.png')
+		img.logo(src='/images/logo_01.png')
 		h1= title
 		div#new-article-click.header-control.clickable
 			input.hidden-input(type="file" accept=".md")
@@ -16,4 +16,4 @@ block content
 			input.hidden-input(type="button")
 	.content
 		div#article-grid-container(style="display: block;")
-		div#article-container(style="display: block;")
+		div#article-container(style="display: block;" role="main")

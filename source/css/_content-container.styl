@@ -28,13 +28,15 @@
 	animation-iteration-count 1
 	animation-fill-mode both
 
-.content #article-container p, h1, h2
+.content #article-container *
 	font-family "DroidSerif"
 
-.content #article-container p
+.content #article-container p, .content #article-container li
 	font-size 20px
 	line-height 34px
 	font-weight 300
+
+.content #article-container p
 	margin 2em 0em
   
 .content #article-container .header
@@ -57,6 +59,7 @@
 	//padding-top 0px
 
 .content #article-container h3
+	font-family "Oswald"
 	font-size 28px
 	margin-bottom -1em
 	padding-top 28px
@@ -64,12 +67,12 @@
 	letter-spacing -0.5px
 	
 .content #article-container .caption, .content #article-container figcaption
-	font-family "DroidSerif"
+	// font-family "DroidSerif"
 	font-size 18px
 	color rgb(150,150,150)
 	font-weight 300
 	line-height 24px
-	margin 0
+	margin -5px 0 0 0
 
 .content #article-container p strong
 	text-transform uppercase
@@ -79,6 +82,9 @@
 	margin-right 3px
 	
 .content #article-container code
+	// TODO: [OPT] Find a better Mono font
+	font-family "OxygenMono"
+	font-size 13px
 	padding 15px 30px
 	margin 0 -90px 0 -60px
 	box-shadow 0 1px 6px 0 #666
@@ -86,6 +92,9 @@
 .content #article-container figcaption
 	vertical-align bottom
 	box-sizingborder-box
+	
+// .content #article-container ul
+// 	margin-top -10px
 
 .content #article-container .full-width
 	margin-top 30px
@@ -101,16 +110,17 @@
   
 .content #article-container .full-width figcaption
 	width calc(100% - 105px)
-	padding 5px 0 5px 60px
+	// padding 5px 0 5px 60px
+	margin 10px 0 0 60px
 
 .content #article-container .left-img
 	float left
-	margin 15px 15px 0px -60px
+	margin 15px 15px 15px -60px
 	position relative
   
 .content #article-container .right-img
 	float right
-	margin 15px -90px 0px 15px
+	margin 15px -90px 15px 15px
 	position relative
 
 .content #article-container .left-img img, .content #article-container .right-img img
@@ -119,7 +129,7 @@
   
 .content #article-container .left-img figcaption, .content #article-container .right-img figcaption
 	width 320px
-	margin 5px 0 0 5px
+	margin 10px 0 0 5px
   
 .content #article-container .full-width img, .content #article-container .right-img img, .content #article-container .left-img img
 	box-shadow 0 1px 6px 0 #666
@@ -129,18 +139,6 @@
 
 .content #article-container .mt-lg
     margin-top 50px
-    
-.content #article-container li
-	font-family "DroidSerif"
-	font-style normal
-	font-size 22px
-	font-weight 300
-  
-.content #article-container ol
-	padding-left 35px
-  
-.content #article-container li p
-  margin-left 3px
   
 .content #article-container pre
   margin 50px -75px 0px -45px

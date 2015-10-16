@@ -1,0 +1,19 @@
+/api
+    /g?f[t]=topic
+	   &p=page
+	   &u=user	GET		
+
+    /a 			POST		auth? 	post article, return message : return not-authorized
+    /a/:id		GET			get complete article JSON
+    /a/:id		POST		auth? 	post updated article JSON : return not-authorized
+    /a/:id		DELETE		auth?	article, return success true/false
+
+    /u 			POST		auth?	user, existing? forgot-email-error : validate-email
+    /u/:id		GET			auth? 	return full profile : return public profile
+    /u/:id		POST		auth? 	post updated user information : 
+    /u/:id		DELETE 		auth? 	delete user, confirm via email : log IP, return not-authorized		
+
+    /i 			POST 		auth? 	upload image : log IP and return not-authorized
+    /i/:id		GET			get metadata of image
+    /i/:id		POST		auth? 	post updated metadata for image : log IP, return not-authorized
+    /i/:id		DELETE		auth? 	delete image and its metadata : log IP, return not-authorized

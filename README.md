@@ -36,11 +36,21 @@ First install the dependencies.
 
 After making changes to the front-end javascript code the concatenated and minified files in the `public/javascript/` directory need to be updated.
 
-* `grunt`
+* `grunt client`
 
 Finally, start the server.
 
 * `npm start`
+
+When you update the libraries in `source/javascript/lib` you need to recompile the compressed javascript file.
+
+* `grunt library`
+
+To check your backend work run
+
+* `grunt server`
+
+Alternatively you can run every Grunt job with `grunt`.
 
 ### Contribution guidelines
 

@@ -16,7 +16,7 @@ var Schema = mongoose.Schema,
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 var topicSchema = Schema({
-	name: { type: String, required: true, index: { unique: true } },
+	name: { type: String, lowercase: true, required: true, index: { unique: true, dropDups: false } },
 	articles: { type: [ObjectId] },
 	authors: { type: [ObjectId] }
 });

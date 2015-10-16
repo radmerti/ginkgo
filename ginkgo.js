@@ -31,12 +31,13 @@ var Root = require('./routes');
 // setup compression before all other middleware so that it is used for all routes
 app.use(Middleware.Compression);
 
-// load the favicon from the public directory.
-app.use(Middleware.Favicon);
-
 // setup http-logger 'morgan' in dev-mode with concise output colored by response status
 // and streaming into the main log via Winston
+// TODO: [BUG] Middle ware is not logging to Winston.Stream
 app.use(Middleware.Morgan);
+
+// load the favicon from the public directory.
+app.use(Middleware.Favicon);
 
 // setup stylus middleware to watch and compiel the 'views' directory
 app.use(Middleware.Stylus);

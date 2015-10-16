@@ -23,7 +23,8 @@ module.exports = function(grunt) {
 					cascade: true,
 					negate_iife: true,
 					drop_console: true
-				}
+				},
+				sourceMap: true
 			},
 			library: {
 				files: { 
@@ -34,7 +35,7 @@ module.exports = function(grunt) {
 						]
 				}
 			},
-			front_end: {
+			client: {
 				files: {
 					'public/javascript/index.min.js': [
 						'source/javascript/index.js'
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
 				varstmt: false,
 				shadow: "inner"
 			},
-			build_browser: {
+			client: {
 				options: {
 					node: false,
 					browser: true,
@@ -69,7 +70,7 @@ module.exports = function(grunt) {
 					src: ['source/javascript/*.js']
 				}
 			},
-			build_nodejs: {
+			server: {
 				options: {
 					node: true,
 					browser: false,
@@ -93,6 +94,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// Default task(s).
-	grunt.registerTask('default', ['uglify', 'jshint']);
+	grunt.registerTask('default', ['jshint', 'uglify']);
+	grunt.registerTask('client', ['jshint:client', 'uglify:client']);
+	grunt.registerTask('library', ['uglify:library']);
+	grunt.registerTask('server', ['jshint:server'])
 
 };
